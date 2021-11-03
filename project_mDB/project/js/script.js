@@ -27,7 +27,7 @@ const movieDB = {
 const adv = document.querySelectorAll('.promo__adv img'),
     genre = document.querySelector('.promo__genre'),
     bg = document.querySelector('.promo__bg'),
-    list = document.querySelectorAll('.promo__interactive-item')
+    movieList = document.querySelector('.promo__interactive-list')
 
 adv.forEach(item => {
     item.remove();
@@ -37,7 +37,44 @@ genre.textContent = 'ДРАМА';
 
 bg.style.backgroundImage = "url('img/bg.jpg')";
 
-list.forEach((item, i) => {
-    item.textContent = `${i+1}.${movieDB.movies.sort()[i]}`;
+movieList.innerHTML = "";
+
+movieDB.movies.sort();
+
+movieDB.movies.forEach((film, i) => {
+    movieList.innerHTML += `
+        <li class="promo__interactive-item">${i + 1}. ${film}
+            <div class="delete"></div>
+        </li>
+    `;
 });
 
+/* Задания на урок:
+1) Реализовать функционал, что после заполнения формы и нажатия кнопки "Подтвердить" -
+новый фильм добавляется в список. Страница не должна перезагружаться.
+Новый фильм должен добавляться в movieDB.movies.
+Для получения доступа к значению input - обращаемся к нему как input.value;
+P.S. Здесь есть несколько вариантов решения задачи, принимается любой, но рабочий.
+2) Если название фильма больше, чем 21 символ - обрезать его и добавить три точки
+3) При клике на мусорную корзину - элемент будет удаляться из списка (сложно)
+4) Если в форме стоит галочка "Сделать любимым" - в консоль вывести сообщение:
+"Добавляем любимый фильм"
+5) Фильмы должны быть отсортированы по алфавиту */
+
+const btn = document.querySelector('button'),
+    input = document.querySelector('.adding__input'),
+    deleted = document.querySelectorAll('.delete');
+
+btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    movieDB.movies.push(input.value);
+    console.log(movieDB.movies);
+
+})
+
+
+// deleted.forEach((item, i) => {
+//     item.addEventListener(click, () => {
+//         item.remove()
+//     })
+// })
