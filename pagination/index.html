@@ -1,24 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>TEST</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <h2>Comments</h2>
+    <div class="content">
+        <form class="form">
+            <legend class="form-legend">Комментарий</legend>
+            <div class="form-input-inner">
+                <input type="text" class="form-input" placeholder="Введите ваше имя">
+            </div>
+            <div class="form-textarea-inner">
+                <textarea class="form-textarea" placeholder="Введите ваш комментарий"></textarea>
+            </div>
+            <div class="form-btn-inner">
+                <button class="form-btn" >Отправить</button>
+            </div>
+        </form>
+
         <div class="comments_inner">
-            <div class="comments_box">                
+            <div class="comments_box">
 
             </div>
-            <ul class="comment_list"></ul>
-            <button class="btn">Добавь еще</button>
+            <div class="footer">
+                <div class="comment_list">
+
+                </div>
+                <button class="comment-btn">Показать еще</button>
+            </div>
         </div>
     </div>
 
-    <script src="js.js"></script>
+    <script src="js/bundle.js"></script>
 </body>
 </html>
