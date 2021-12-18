@@ -53,28 +53,15 @@ function comment() {
         list.append(pag);
     }
 
-    // list.addEventListener('click', (e) => {
-    //     console.log(e)
-    //     if(!e.target.classList.contains('active')){
-    //         removeClass()
-    //         e.target.classList.add('active');
-    //     }else{
-    //         removeClass()
-    //         e.target.classList.add('active');
-    //     }
-    //     showPage(e.target.innerHTML);
-    // })
+
     list.addEventListener('click', (e) => {
         if(e.target.classList.contains('pagination_num')){
             document.querySelectorAll('.pagination_num').forEach(item => {
                 item.classList.remove('active')
             })
             e.target.classList.add('active');
-            console.log('Target:' + e.target);
         }
-        
         showPage(e.target.innerHTML);
-    
     })
 
     let counter = 2;
@@ -96,7 +83,6 @@ function comment() {
                 counter++;
             })
     })
-
 }
 
 module.exports = comment;
